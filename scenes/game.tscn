@@ -291,7 +291,7 @@ position = Vector2(287, 208)
 
 [node name="Labels" type="Node" parent="."]
 
-[node name="Label" type="Label" parent="Labels"]
+[node name="Label1" type="Label" parent="Labels"]
 offset_left = 24.0
 offset_top = 158.0
 offset_right = 119.0
