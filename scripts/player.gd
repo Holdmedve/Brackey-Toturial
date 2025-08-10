@@ -6,15 +6,26 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+enum State {ON_FLOOR, IN_AIR, JUMPED_IN_AIR}
+var state: State = State.ON_FLOOR
+
 
 func _physics_process(delta: float) -> void:
+	if not is_on_floor() and state != State.JUMPED_IN_AIR:
+		state = State.IN_AIR
+	if is_on_floor():
+		state = State.ON_FLOOR
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		elif state == State.IN_AIR:
+			velocity.y = JUMP_VELOCITY
+			state = State.JUMPED_IN_AIR
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
