@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqw01e8jnqcf1"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_34vrj"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 120.0
+offset_right = 372.0
+offset_bottom = 151.0
+text = "Play"
+
+[node name="WelcomeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 57.0
+offset_right = 402.0
+offset_bottom = 106.0
+text = "Welcome to 
+Knight Roller"
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 158.0
+offset_right = 370.0
+offset_bottom = 189.0
+text = "Exit"
+script = ExtResource("1_34vrj")
