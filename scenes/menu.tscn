@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqw01e8jnqcf1"]
+[gd_scene load_steps=3 format=3 uid="uid://bqw01e8jnqcf1"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_34vrj"]
+[ext_resource type="FontFile" uid="uid://bv4d30taqnnos" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_a3rk1"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -12,27 +13,33 @@ grow_vertical = 2
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 0
-offset_left = 331.0
-offset_top = 120.0
-offset_right = 372.0
-offset_bottom = 151.0
+offset_left = 509.0
+offset_top = 269.0
+offset_right = 550.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("1_a3rk1")
 text = "Play"
 
 [node name="WelcomeLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 302.0
-offset_top = 57.0
-offset_right = 402.0
-offset_bottom = 106.0
+offset_left = 449.0
+offset_top = 206.0
+offset_right = 635.0
+offset_bottom = 255.0
+theme_override_fonts/font = ExtResource("1_a3rk1")
 text = "Welcome to 
 Knight Roller"
 horizontal_alignment = 1
 
 [node name="Exit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 333.0
-offset_top = 158.0
-offset_right = 370.0
-offset_bottom = 189.0
+offset_left = 510.0
+offset_top = 311.0
+offset_right = 576.0
+offset_bottom = 342.0
+theme_override_fonts/font = ExtResource("1_a3rk1")
 text = "Exit"
 script = ExtResource("1_34vrj")
+
+[connection signal="pressed" from="Play" to="Exit" method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]
