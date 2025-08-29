@@ -26,9 +26,6 @@ func _physics_process(delta: float) -> void:
 		elif state == State.IN_AIR:
 			velocity.y = JUMP_VELOCITY
 			state = State.JUMPED_IN_AIR
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	# Get 
 	var direction := Input.get_axis("move_left", "move_right")
