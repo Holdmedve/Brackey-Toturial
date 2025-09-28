@@ -5,6 +5,7 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sword_animation_player: AnimationPlayer = $Sword/AnimationPlayer
 
 enum State {ON_FLOOR, IN_AIR, JUMPED_IN_AIR}
 var state: State = State.ON_FLOOR
@@ -19,6 +20,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		sword_animation_player.play("swing")
 
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
