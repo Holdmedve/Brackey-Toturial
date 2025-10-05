@@ -7,6 +7,9 @@ var direction = 1
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
+var health = 3
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if ray_cast_right.is_colliding():
@@ -22,3 +25,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	move_and_slide()
+	
+	
+func hit_by_sword() -> void:
+	print('slime hit by sword')
+	health -= 1
+	if health <= 0:
+		print('slime is dead')
+		find_child("CollisionShape2D", false, true).queue_free()
+		#  .get_node("CollisionShape2D").queue_free()

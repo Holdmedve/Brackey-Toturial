@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7757tmbba4fv"]
+[gd_scene load_steps=4 format=3 uid="uid://b7757tmbba4fv"]
 
 [ext_resource type="Texture2D" uid="uid://da4h7x0q23imm" path="res://assets/sprites/swords.png" id="1_2kyrc"]
+[ext_resource type="Script" path="res://scripts/sword.gd" id="1_boyj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uhj"]
 size = Vector2(7.80609, 14.6192)
 
 [node name="Sword" type="Area2D"]
+script = ExtResource("1_boyj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2kyrc")
@@ -16,3 +18,5 @@ region_rect = Rect2(97, 17, 14, 14)
 position = Vector2(1.77551, -1.86454)
 rotation = 0.727374
 shape = SubResource("RectangleShape2D_e6uhj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
