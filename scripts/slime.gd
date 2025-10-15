@@ -6,6 +6,7 @@ var direction = 1
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var killzone: Area2D = $Killzone
 
 
 var health = 3
@@ -26,7 +27,17 @@ func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	move_and_slide()
 	
+
+func _ready() -> void:
+	var combat_data = {
+		"id": killzone.get_instance_id(), # todo this is bad
+		"node": self,
+		"health": 10,
+		"attack": 0,
+	}
+	CombatSystem.register(combat_data)
 	
+
 func hit_by_sword() -> void:
 	print('slime hit by sword')
 	health -= 1
