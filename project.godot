@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Music="*res://scenes/music.tscn"
-CombatSystem="*res://scripts/combat_system.gd"
 
 [editor]
 

@@ -56,13 +56,3 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-
-func _ready() -> void:
-	var combat_data = {
-		"id": get_instance_id(),
-		"node": self,
-		"health": 10,
-		"attack": 5,
-	}
-	CombatSystem.register(combat_data)

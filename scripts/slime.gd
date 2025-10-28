@@ -26,22 +26,3 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	move_and_slide()
-	
-
-func _ready() -> void:
-	var combat_data = {
-		"id": killzone.get_instance_id(), # todo this is bad
-		"node": self,
-		"health": 10,
-		"attack": 0,
-	}
-	CombatSystem.register(combat_data)
-	
-
-func hit_by_sword() -> void:
-	print('slime hit by sword')
-	health -= 1
-	if health <= 0:
-		print('slime is dead')
-		find_child("CollisionShape2D", false, true).queue_free()
-		#  .get_node("CollisionShape2D").queue_free()

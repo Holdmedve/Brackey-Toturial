@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://nmaltk8vba1u"]
+[gd_scene load_steps=13 format=3 uid="uid://nmaltk8vba1u"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_7q3mr"]
 [ext_resource type="Texture2D" uid="uid://d1qcx0n2yb2d0" path="res://assets/sprites/slime_green.png" id="1_ovg2c"]
 [ext_resource type="PackedScene" uid="uid://chcp4svs12jkk" path="res://scenes/killzone.tscn" id="2_f0x21"]
+[ext_resource type="PackedScene" uid="uid://gfqlftvgtfm8" path="res://scenes/health_component.tscn" id="4_o3trt"]
+[ext_resource type="PackedScene" uid="uid://cqob128hqahtp" path="res://scenes/hitbox_component.tscn" id="5_ia27g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gg7n"]
 atlas = ExtResource("1_ovg2c")
@@ -43,6 +45,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ge0ta"]
 size = Vector2(10, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnum7"]
+size = Vector2(14, 11)
+
 [node name="Slime" type="CharacterBody2D"]
 script = ExtResource("1_7q3mr")
 
@@ -66,6 +71,10 @@ target_position = Vector2(9, 0)
 position = Vector2(0, -5)
 target_position = Vector2(-8, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_ge0ta")
+[node name="HealthComponent" parent="." instance=ExtResource("4_o3trt")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("5_ia27g")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_tnum7")
