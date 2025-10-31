@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://b2ivg5k1ulog1"]
+[gd_scene load_steps=9 format=4 uid="uid://b2ivg5k1ulog1"]
 
 [ext_resource type="Texture2D" uid="uid://dp1wsmo1sg4fq" path="res://assets/sprites/world_tileset.png" id="1_vgja1"]
 [ext_resource type="PackedScene" uid="uid://dokgjqhfb541g" path="res://scenes/player.tscn" id="2_d8we5"]
 [ext_resource type="PackedScene" uid="uid://nmaltk8vba1u" path="res://assets/sprites/slime.tscn" id="3_6ufym"]
 [ext_resource type="FontFile" uid="uid://bv4d30taqnnos" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_74mjb"]
+[ext_resource type="PackedScene" uid="uid://bbvbavvymtuqu" path="res://scenes/teddy_bear.tscn" id="5_ru4tf"]
+[ext_resource type="Script" uid="uid://cchoxg2ixt44m" path="res://scripts/winning_text.gd" id="6_6sh32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwlao"]
 texture = ExtResource("1_vgja1")
@@ -207,3 +209,22 @@ text = "The slimes took your Teddybear,
 go take it  back!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TeddyBear" parent="." instance=ExtResource("5_ru4tf")]
+position = Vector2(369.00003, 460)
+scale = Vector2(0.2, 0.2)
+
+[node name="WinningText" type="Label" parent="."]
+visible = false
+offset_left = 391.0
+offset_top = 449.0
+offset_right = 431.0
+offset_bottom = 472.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_74mjb")
+theme_override_font_sizes/font_size = 8
+text = "YAY!
+"
+script = ExtResource("6_6sh32")

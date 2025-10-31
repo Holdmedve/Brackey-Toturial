@@ -1,0 +1,3 @@
+extends Node
+
+signal teddybear_picked_up
