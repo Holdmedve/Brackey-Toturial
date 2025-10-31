@@ -192,7 +192,7 @@ position = Vector2(314, 458)
 zoom = Vector2(3, 3)
 
 [node name="Slime" parent="." instance=ExtResource("3_6ufym")]
-position = Vector2(730, 456)
+position = Vector2(687, 450)
 
 [node name="Prolouge" type="Label" parent="."]
 offset_left = 277.0

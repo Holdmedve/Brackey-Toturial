@@ -8,6 +8,8 @@ func _ready() -> void:
 	health = MAX_HEALTH
 
 func damage(attack: Attack) -> void:
+	print('damaged received')
+	print(attack.damage_amount)
 	health -= attack.damage_amount
 	if health <= 0:
 		get_parent().queue_free()
