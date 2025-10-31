@@ -12,7 +12,7 @@ config_version=5
 
 config/name="First Brackeys Game"
 run/main_scene="res://scenes/menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,6 +23,10 @@ Music="*res://scenes/music.tscn"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
 
 [input]
 
