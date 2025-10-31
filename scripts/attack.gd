@@ -3,5 +3,5 @@ class_name Attack
 
 var damage_amount: int
 
-func _init(damage_amount: int) -> void:
-	self.damage_amount = damage_amount
+func _init(pdamage_amount: int) -> void:
+	damage_amount = pdamage_amount
